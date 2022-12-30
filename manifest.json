@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "TabBuffer",
+  "description": "Stop holding on to your oldest tabs. Trust me, you never were going to open them ever again.",
+  "version": "0.0.1",
+  "icons": {
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+  },
+  "background": {
+      "service_worker": "scripts.js"
+  },
+  "permissions": ["storage", "unlimitedStorage", "activeTab", "scripting","tabs", "alarms", "history"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "commands": {
+      "inject-script": {
+        "suggested_key": "Ctrl+Shift+Y",
+        "description": "Inject a script on the page"
+      }
+    }
+}

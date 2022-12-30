@@ -1,0 +1,28 @@
+ /* Style the table to look a nice blue with a white border*/
+ table, th, td, ol {
+  border: 1px solid white;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.tab-link:hover {
+  text-decoration: underline;
+}
+.list-title {
+  color: azure;
+  background-color: #00334f;
+  font-size: 16px;
+}
+body {
+  color:#00334f;
+}
+p {
+  font-size: 14px;
+}
+button {
+  background-color:#00334f;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
