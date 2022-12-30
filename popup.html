@@ -16,14 +16,32 @@
       Reload
     </button>
   </div>
+
+  <!-- div used for internal testing -->
+  <div style="text-align: center; padding: 3%"> <!-- create buttons to make all tabs active/inactive-->
+    <button id="activeButton", style="color:aqua">
+      Make all tabs active
+    </button>
+    <button id="discardButton", style="color:aqua">
+      Make all tabs inactive
+    </button>
+  </div>
+  <!-- div used for internal testing -->
+
   <ol id="inactiveList" class="list-group list-group-flush">
   </ol>
   <br/>
 <div style="text-align: center;">
     <h3> Tab Statistics</h3>
+    <p id="windowCount">
+    </p>
     <p id="inactiveCount">
     </p>
+    <p id="numWindows">
+    </p>
     <p id="totalCount">
+    </p>
+    <p id="totalInactive">
     </p>
   </div>
   <script src="scripts.js"></script>
