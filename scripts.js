@@ -16,7 +16,7 @@ const discardAllTabs = (callback) => { // discard tabs ("deload" all inactive ta
   callback();
 }
 
-const activateAllTabs = (callback) => { // reload all inactive tabs
+const activateAllTabs = (callback) => { // make all inactive tabs active
   chrome.tabs.query({active: false}, function (tabs) {
     for (let tab of tabs) {
       chrome.tabs.update(tab.id, {active: true});
