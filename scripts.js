@@ -1,5 +1,5 @@
 
-const DiscardTabs = () => { // delete all discarded tabs in current window
+const deleteTabs = () => { // delete all discarded tabs in current window
   chrome.tabs.query({discarded: true, active: false, currentWindow: true}, function (tabs) {
     for (let tab of tabs) {
       chrome.tabs.remove(tab.id);
@@ -31,7 +31,7 @@ var finalTabs = []; // array that will hold oldest tabs
 const getLeastRecentTabs = () => {
   chrome.tabs.query({active: false, currentWindow: true}, function (tabs) { // get all inactive tabs
     for (let tab of tabs) {
-      chrome.history.search({text: tab.url, maxResults: 1}, function (histories) { // 
+      chrome.history.search({text: tab.url, maxResults: 1}, function (histories) {
         visitTimes[histories[0].lastVisitTime] = tab;
       });
     }
@@ -63,10 +63,10 @@ const populateList = (reload) => {
   chrome.tabs.query({active: false, currentWindow: true}, function (tabs) {
     for (let tab of tabs) {
       chrome.history.search({text: tab.url, maxResults: 1}, function (histories) {
-        if (tab.discarded == true || histories[0].lastVisitTime < (Date.now() - 6*3600000)) { // ?
+        if (tab.discarded == true || histories[0].lastVisitTime < (Date.now() - 6*3600000)) {
           chrome.tabs.discard(tab.id);
           var li = document.createElement("li");
-          li.className = "list-group-item";
+          li.className = "list-group-item list-group-item-action";
           var tbl = document.createElement("table");
           var tblBody = document.createElement("tbody");
           tbl.appendChild(tblBody);
@@ -78,8 +78,9 @@ const populateList = (reload) => {
           td1.onclick = function() {
             chrome.tabs.update(tab.id, {active: true});
           }
-          var deleteButton = document.createElement("button");
-          deleteButton.innerHTML = "x";
+
+          var deleteButton = document.createElement("button"); // delete button
+          deleteButton.innerHTML = '<i class="gg-trash" style="color: black;"></i>';
           deleteButton.onclick = function() {
             chrome.tabs.remove(tab.id);
             li.parentNode.removeChild(li);
@@ -88,6 +89,7 @@ const populateList = (reload) => {
             }, 500); 
             loadStatistics();
           };
+
           td2.appendChild(deleteButton);
           li.appendChild(tbl);
           if (document.querySelectorAll('#inactiveList li').length < suggestionCount) inactiveList.appendChild(li);
@@ -145,7 +147,7 @@ loadStatistics();
 // checkAlarm();
 
 closeAllButton.onclick = function() {
-  DiscardTabs();
+  deleteTabs();
 };
 
 reloadButton.onclick = function() {

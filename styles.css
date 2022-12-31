@@ -19,12 +19,14 @@ p {
   font-size: 14px;
 }
 button {
-  background-color:#00334f;
+  background-color: white;
   border: none;
-  color: white;
+  color: black;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  padding-right: 15px;
+  padding-left: 0px;
 }
 
 /* from headers.css in bootstrap folder */
