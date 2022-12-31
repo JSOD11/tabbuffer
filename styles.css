@@ -1,6 +1,6 @@
  /* Style the table to look a nice blue with a white border*/
  table, th, td, ol {
-  border: 1px solid white;
+  border: 0px solid white;
   border-collapse: collapse;
   font-size: 16px;
 }
