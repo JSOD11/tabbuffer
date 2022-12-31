@@ -53,7 +53,7 @@ var activeButton = document.getElementById("activeButton"); // for testing purpo
 
 var suggestionCount = 10;
 
-const populateList = (reload, callback) => {
+const populateList = (reload) => {
   if (reload == true) {
     var lis = document.querySelectorAll('#inactiveList li');
     for (var i=0; li=lis[i]; i++) {
