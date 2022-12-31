@@ -2,48 +2,71 @@
 <html style="width:600px">
   <head>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href='https://css.gg/trash.css' rel='stylesheet'>
   </head>
-  <body style="position: relative; vertical-align:middle">
-  <div class="list-title">
-    <h3> List of Recommended Tabs to delete</h3>
-  </div>
-  <div style="text-align: center; padding: 3%">
-    <button id="closeAllButton">
-      Close All Inactive Tabs
-    </button>
-    <button id="reloadButton">
-      Reload
-    </button>
-  </div>
 
-  <!-- div used for internal testing -->
-  <div style="text-align: center; padding: 3%"> <!-- create buttons to make all tabs active/inactive-->
-    <button id="activeButton", style="color:aqua">
-      Make all tabs active
-    </button>
-    <button id="discardButton", style="color:aqua">
-      Make all tabs inactive
-    </button>
-  </div>
-  <!-- div used for internal testing -->
+  <header class="p-3 text-bg-dark"> <!-- new header with buttons -->
 
-  <ol id="inactiveList" class="list-group list-group-flush">
+    <div> <!-- contains name, two buttons-->
+      <ul class="nav justify-content-left">
+        <li style="margin-right: 11.6em; font-size: x-large">TabBuffer</li>
+        <li style="margin-right: 0.5em;""><button id="reloadButton" type="button" class="btn btn-outline-light me-2">Reload</button></li>
+        <li><button id="closeAllButton" type="button" class="btn btn-outline-light me-2">Close All</button></li>
+      </ul>
+    </div>
+
+    <!-- div used for internal testing, comment out for external use
+    <div>
+      <ul class="nav">
+        <li><button id="activeButton" type="button" class="btn btn-outline-light me-2">Activate All Tabs</button></li>
+        <li><button id="discardButton" type="button" class="btn btn-outline-light me-2">Discard All Tabs</button></li>
+      </ul>
+    </div> div used for internal testing, comment out for external use -->
+
+  </header>
+
+  <ol style="padding-left: 10px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px;" id="inactiveList" class="list-group">
   </ol>
-  <br/>
-<div style="text-align: center;">
-    <h3> Tab Statistics</h3>
-    <p id="windowCount">
-    </p>
-    <p id="inactiveCount">
-    </p>
-    <p id="numWindows">
-    </p>
-    <p id="totalCount">
-    </p>
-    <p id="totalInactive">
-    </p>
-  </div>
+
+  <header class="p-3 text-bg-light">
+
+    <div>
+      <ul class="nav justify-content-left">
+        <li style="margin-right: 11.6em; font-size: x-large">Statistics</li>
+      </ul>
+    </div>
+
+  </header>
+
+  <table class="table table-striped" style="padding-bottom: 0px;">
+    <thead>
+      <tr>
+        <th scope="col">Inactive tabs in window</th>
+        <th id="inactiveCount" scope="col" style="text-align: right; padding-right: 25px;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Total inactive tabs</th>
+        <td id="totalInactive" style="font-weight: bold; text-align: right; padding-right: 25px;"></td>
+      </tr>
+      <tr>
+        <th scope="row">Tabs in window</th>
+        <td id="windowCount" style="font-weight: bold; text-align: right; padding-right: 25px;"></td>
+      </tr>
+      <tr>
+        <th scope="row">Total tabs</th>
+        <td id="totalCount" style="font-weight: bold; text-align: right; padding-right: 25px;"></td>
+      </tr>
+      <tr>
+        <th scope="row">Windows</th>
+        <td id="numWindows" style="font-weight: bold; text-align: right; padding-right: 25px;"></td>
+      </tr>
+    </tbody>
+  </table>
+
   <script src="scripts.js"></script>
+
   </body>
 </html>
