@@ -103,25 +103,25 @@ const loadStatistics = () => { // generate statistics in popup window
   // stats for current window
   chrome.tabs.query({currentWindow: true}, function (tabs) { // # tabs in current window
     var count = document.getElementById("windowCount");
-    count.innerHTML = "Tabs in current window: " + tabs.length;
+    count.innerHTML = tabs.length;
   });
   chrome.tabs.query({discarded: true, active: false, currentWindow: true}, function (tabs) { // # inactive tabs in current window
     var count = document.getElementById("inactiveCount");
-    count.innerHTML = "Inactive tabs in current window: " + tabs.length;
+    count.innerHTML = tabs.length;
   });
 
   // stats for all windows
   chrome.windows.getAll(function(windows) { // # windows, total
     var count = document.getElementById("numWindows");
-    count.innerHTML = "Total number of windows: " + windows.length;
+    count.innerHTML = windows.length;
   });
   chrome.tabs.query({}, function (tabs) { // # tabs, total
     var count = document.getElementById("totalCount");
-    count.innerHTML = "Total number of tabs: " + tabs.length;
+    count.innerHTML = tabs.length;
   });
   chrome.tabs.query({discarded: true}, function (tabs) { // # inactive tabs, total
     var count = document.getElementById("totalInactive");
-    count.innerHTML = "Total number of inactive tabs: " + tabs.length;
+    count.innerHTML = tabs.length;
   });
 
 }
