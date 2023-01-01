@@ -4,6 +4,17 @@
   border-collapse: collapse;
   font-size: 16px;
 }
+
+.stats {
+  font-size: 16px;
+  font-weight:bold;
+}
+
+.stats1 {
+  font-size: 16px;
+  font-weight:lighter;
+}
+
 .tab-link:hover {
   text-decoration: underline;
 }
@@ -21,7 +32,7 @@ p {
 button {
   background-color: white;
   border: none;
-  color: black;
+  color: #212529;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -32,11 +43,11 @@ button {
 .list-div { /* used for div surrounding dynamic list of sites */
   background-color: #212529; /* #212529 */
   padding-left: 10px;
-  padding-top: 10px;
+  padding-top: 5px;
   padding-right: 10px;
   padding-bottom: 10px;
   height: auto;
-  max-height: 60vh;
+  max-height: 65.5vh;
   overflow-y: auto;
 }
 

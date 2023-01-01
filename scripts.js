@@ -79,14 +79,14 @@ const populateList = (reload) => {
             chrome.tabs.update(tab.id, {active: true});
           }
 
-          var deleteButton = document.createElement("button"); // delete button
+          var deleteButton = document.createElement("button"); // delete button bg: #F8F9FA
           deleteButton.innerHTML = '<i class="gg-trash" style="color: black;"></i>';
           deleteButton.onclick = function() {
             chrome.tabs.remove(tab.id);
             li.parentNode.removeChild(li);
             if (document.querySelectorAll('#inactiveList li').length == 0) setTimeout(function() {
               populateList(true);
-            }, 500); 
+            }, 500);
             loadStatistics();
           };
 
