@@ -113,10 +113,10 @@ const loadStatistics = () => { // generate statistics in popup window
   });
 
   // stats for all windows
-  chrome.windows.getAll(function(windows) { // # windows, total
-    var count = document.getElementById("numWindows");
-    count.innerHTML = windows.length;
-  });
+  // chrome.windows.getAll(function(windows) { // # windows, total (function not used in current TabBuffer version)
+  //   var count = document.getElementById("numWindows");
+  //   count.innerHTML = windows.length;
+  // });
   chrome.tabs.query({}, function (tabs) { // # tabs, total
     var count = document.getElementById("totalCount");
     count.innerHTML = tabs.length;
