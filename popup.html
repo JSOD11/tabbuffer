@@ -27,10 +27,12 @@
 
   </header>
 
-  <ol style="padding-left: 10px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px;" id="inactiveList" class="list-group">
-  </ol>
+  <div class="container-fluid" style="padding-left: 10px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; height: auto; max-height: 50vh; overflow-y: auto;">
+    <ol id="inactiveList" class="list-group">
+    </ol>
+  </div>
 
-  <header class="p-3 text-bg-light">
+  <!-- <header class="p-3 text-bg-light">
 
     <div>
       <ul class="nav justify-content-left">
@@ -38,16 +40,14 @@
       </ul>
     </div>
 
-  </header>
+  </header> -->
 
-  <table class="table table-striped" style="padding-bottom: 0px;">
-    <thead>
-      <tr>
-        <th scope="col">Inactive tabs in window</th>
-        <th id="inactiveCount" scope="col" style="text-align: right; padding-right: 25px;"></th>
-      </tr>
-    </thead>
+  <table class="table table-striped table-dark table-hover">
     <tbody>
+      <tr>
+        <th scope="row">Inactive tabs in window</th>
+        <td id="inactiveCount" style="font-weight: bold; text-align: right; padding-right: 25px;"></td>
+      </tr>
       <tr>
         <th scope="row">Total inactive tabs</th>
         <td id="totalInactive" style="font-weight: bold; text-align: right; padding-right: 25px;"></td>
