@@ -51,7 +51,7 @@ var inactiveList = document.getElementById("inactiveList");
 var discardButton = document.getElementById("discardButton"); // for testing purposes
 var activeButton = document.getElementById("activeButton"); // for testing purposes
 
-var suggestionCount = 10;
+var suggestionCount = 999;
 
 const populateList = (reload) => {
   if (reload == true) {
