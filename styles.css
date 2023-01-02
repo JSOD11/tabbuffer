@@ -20,7 +20,7 @@ p {
   font-size: 14px;
 }
 button {
-  background-color: white;
+  background-color: rgba(0,0,0,0);
   border: none;
   color: #212529;
   text-align: center;
