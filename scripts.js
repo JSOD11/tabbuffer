@@ -8,7 +8,7 @@ const deleteTabs = () => { // delete all discarded tabs in current window
 }
 
 const discardAllTabs = (callback) => { // discard tabs ("deload" all inactive tabs)
-  chrome.tabs.query({active: false}, function (tabs) {
+  chrome.tabs.query({active: false, currentWindow: true}, function (tabs) {
     for (let tab of tabs) {
       chrome.tabs.discard(tab.id);
     }
@@ -51,8 +51,6 @@ var inactiveList = document.getElementById("inactiveList");
 var discardButton = document.getElementById("discardButton"); // for testing purposes
 var activeButton = document.getElementById("activeButton"); // for testing purposes
 
-var suggestionCount = 999;
-
 const populateList = (reload) => {
   if (reload == true) {
     var lis = document.querySelectorAll('#inactiveList li');
@@ -80,7 +78,7 @@ const populateList = (reload) => {
           }
 
           var deleteButton = document.createElement("button"); // delete button bg: #F8F9FA
-          deleteButton.innerHTML = '<i class="gg-trash" style="color: black;"></i>';
+          deleteButton.innerHTML = '<i class="gg-trash" style="color: rgb(34, 34, 34);"></i>';
           deleteButton.onclick = function() {
             chrome.tabs.remove(tab.id);
             li.parentNode.removeChild(li);
@@ -92,10 +90,9 @@ const populateList = (reload) => {
 
           td2.appendChild(deleteButton);
           li.appendChild(tbl);
-          if (document.querySelectorAll('#inactiveList li').length < suggestionCount) inactiveList.appendChild(li);
+          inactiveList.appendChild(li);
         }
       });
-      if (document.querySelectorAll('#inactiveList li').length >= suggestionCount) break;
     }
   });
 }
@@ -113,10 +110,6 @@ const loadStatistics = () => { // generate statistics in popup window
   });
 
   // stats for all windows
-  // chrome.windows.getAll(function(windows) { // # windows, total (function not used in current TabBuffer version)
-  //   var count = document.getElementById("numWindows");
-  //   count.innerHTML = windows.length;
-  // });
   chrome.tabs.query({}, function (tabs) { // # tabs, total
     var count = document.getElementById("totalCount");
     count.innerHTML = tabs.length;
@@ -128,23 +121,23 @@ const loadStatistics = () => { // generate statistics in popup window
 
 }
 
-// const checkAlarm = () => {
-//   chrome.alarms.getAll(function(alarms) {
-//     var hasAlarm = alarms.some(function(a) {
-//       return a.name == "3hr";
-//     });
-//     if (!hasAlarm) {
-//       chrome.alarms.create("3hr", {
-//         delayInMinutes: 0,
-//         periodInMinutes: 180
-//       });
-//     }
-//   });
-// }
+const checkAlarm = () => {
+  chrome.alarms.getAll(function(alarms) {
+    var hasAlarm = alarms.some(function(a) {
+      return a.name == "6hr";
+    });
+    if (!hasAlarm) {
+      chrome.alarms.create("6hr", {
+        delayInMinutes: 0,
+        periodInMinutes: 360
+      });
+    }
+  });
+}
 
 populateList(true);
 loadStatistics();
-// checkAlarm();
+checkAlarm();
 
 closeAllButton.onclick = function() {
   deleteTabs();

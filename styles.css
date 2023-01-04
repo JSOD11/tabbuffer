@@ -1,28 +1,28 @@
  /* Style the table to look a nice blue with a white border*/
- table, th, td, ol {
-  border: 0px solid white;
+ table, th, ol {
+  border: 0px solid lavender;
   border-collapse: collapse;
   font-size: 16px;
+  color: rgb(34, 34, 34);
 }
 
 .tab-link:hover {
   text-decoration: underline;
 }
 .list-title {
-  color: azure;
-  background-color: #00334f;
+  background-color: rgb(34, 34, 34);;
   font-size: 16px;
 }
 body {
-  color:#00334f;
+  background-color:rgb(34, 34, 34);
 }
 p {
   font-size: 14px;
 }
 button {
-  background-color: rgba(0,0,0,0);
+  background-color: white;
   border: none;
-  color: #212529;
+  color: #112941;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -31,11 +31,10 @@ button {
 }
 
 .list-div { /* used for div surrounding dynamic list of sites */
-  background-color: #212529; /* #212529 */
   padding-left: 10px;
   padding-top: 5px;
   padding-right: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   height: auto;
   max-height: 65.5vh;
   overflow-y: auto;
@@ -77,10 +76,10 @@ button {
 
 .b-example-divider {
   height: 3rem;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
+  background-color: rgba(40, 42, 104, 0.1);
+  border: solid rgba(40, 42, 104, .15);
   border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  box-shadow: inset 0 .5em 1.5em rgba(40, 42, 104, .1), inset 0 .125em .5em rgba(40, 42, 104, .15);
 }
 
 .b-example-vr {

@@ -4,8 +4,8 @@
   "description": "TabBuffer helps to reduce clutter, improve efficiency, and increase computer speed and performance.",
   "version": "0.0.1",
   "icons": {
-      "48": "icons/blue.png",
-      "128": "icons/blue.png"
+      "48": "icons/black.png",
+      "128": "icons/black.png"
   },
   "background": {
       "service_worker": "scripts.js"
