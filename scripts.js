@@ -7,24 +7,6 @@ const deleteTabs = () => { // delete all discarded tabs in current window
   });
 }
 
-const discardAllTabs = (callback) => { // discard tabs ("deload" all inactive tabs)
-  chrome.tabs.query({active: false}, function (tabs) {
-    for (let tab of tabs) {
-      chrome.tabs.discard(tab.id);
-    }
-  });
-  callback();
-}
-
-const activateAllTabs = (callback) => { // make all inactive tabs active
-  chrome.tabs.query({active: false}, function (tabs) {
-    for (let tab of tabs) {
-      chrome.tabs.update(tab.id, {active: true});
-    }
-  });
-  callback();
-}
-
 var visitTimes = {}; // JS object with visit times
 var finalTabs = []; // array that will hold oldest tabs
 
@@ -45,13 +27,7 @@ const getLeastRecentTabs = () => {
 }
 
 var closeAllButton = document.getElementById("closeAllButton");
-var reloadButton = document.getElementById("reloadButton");
 var inactiveList = document.getElementById("inactiveList");
-
-var discardButton = document.getElementById("discardButton"); // for testing purposes
-var activeButton = document.getElementById("activeButton"); // for testing purposes
-
-var suggestionCount = 999;
 
 const populateList = (reload) => {
   if (reload == true) {
@@ -64,7 +40,7 @@ const populateList = (reload) => {
     for (let tab of tabs) {
       chrome.history.search({text: tab.url, maxResults: 1}, function (histories) {
         if (tab.discarded == true || histories[0].lastVisitTime < (Date.now() - 6*3600000)) {
-          chrome.tabs.discard(tab.id);
+          if (tab.discarded == false) chrome.tabs.discard(tab.id);
           var li = document.createElement("li");
           li.className = "list-group-item list-group-item-action";
           var tbl = document.createElement("table");
@@ -80,7 +56,7 @@ const populateList = (reload) => {
           }
 
           var deleteButton = document.createElement("button"); // delete button bg: #F8F9FA
-          deleteButton.innerHTML = '<i class="gg-trash" style="color: black;"></i>';
+          deleteButton.innerHTML = '<i class="gg-trash" style="color: rgb(34, 34, 34);"></i>';
           deleteButton.onclick = function() {
             chrome.tabs.remove(tab.id);
             li.parentNode.removeChild(li);
@@ -92,10 +68,9 @@ const populateList = (reload) => {
 
           td2.appendChild(deleteButton);
           li.appendChild(tbl);
-          if (document.querySelectorAll('#inactiveList li').length < suggestionCount) inactiveList.appendChild(li);
+          inactiveList.appendChild(li);
         }
       });
-      if (document.querySelectorAll('#inactiveList li').length >= suggestionCount) break;
     }
   });
 }
@@ -113,10 +88,6 @@ const loadStatistics = () => { // generate statistics in popup window
   });
 
   // stats for all windows
-  // chrome.windows.getAll(function(windows) { // # windows, total (function not used in current TabBuffer version)
-  //   var count = document.getElementById("numWindows");
-  //   count.innerHTML = windows.length;
-  // });
   chrome.tabs.query({}, function (tabs) { // # tabs, total
     var count = document.getElementById("totalCount");
     count.innerHTML = tabs.length;
@@ -128,51 +99,10 @@ const loadStatistics = () => { // generate statistics in popup window
 
 }
 
-// const checkAlarm = () => {
-//   chrome.alarms.getAll(function(alarms) {
-//     var hasAlarm = alarms.some(function(a) {
-//       return a.name == "3hr";
-//     });
-//     if (!hasAlarm) {
-//       chrome.alarms.create("3hr", {
-//         delayInMinutes: 0,
-//         periodInMinutes: 180
-//       });
-//     }
-//   });
-// }
-
 populateList(true);
 loadStatistics();
-// checkAlarm();
+checkAlarm();
 
 closeAllButton.onclick = function() {
   deleteTabs();
 };
-
-reloadButton.onclick = function() {
-  populateList(true);
-  loadStatistics();
-};
-
-// used for internal testing, comment out for external use, don't delete
-//
-discardButton.onclick = function() { // discard all tabs
-  discardAllTabs(() => {
-    populateList(true);
-    loadStatistics();
-  });
-}
-
-activeButton.onclick = function() { // activate all tabs
-  activateAllTabs(() => {
-    populateList(true);
-    loadStatistics();
-  });
-}
-//
-// used for internal testing, comment out for external use, don't delete
-
-// chrome.alarms.onAlarm.addListener(function( alarm ) {
-//   discardAllTabs();
-// });
