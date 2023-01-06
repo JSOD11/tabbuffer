@@ -155,7 +155,7 @@ reloadButton.onclick = function() {
   loadStatistics();
 };
 
-// vvv ———— used for internal testing ———— vvv
+// used for internal testing, comment out for external use, don't delete
 //
 discardButton.onclick = function() { // discard all tabs
   discardAllTabs(() => {
@@ -171,7 +171,7 @@ activeButton.onclick = function() { // activate all tabs
   });
 }
 //
-// ^^^ ———— used for internal testing ———— ^^^
+// used for internal testing, comment out for external use, don't delete
 
 // chrome.alarms.onAlarm.addListener(function( alarm ) {
 //   discardAllTabs();
