@@ -8,6 +8,8 @@ https://user-images.githubusercontent.com/55005116/212726851-09aa015f-69c0-4bfc-
 # Screenshots
 
 <p float="left">
-  <img width="400" alt="Screenshot 2023-01-16 at 9 43 44 PM" src="https://user-images.githubusercontent.com/55005116/212802871-f4d59cdf-01e0-482e-b98d-194fd9e1fa23.png">
-  <img width="400" alt="Screenshot 2023-01-16 at 9 56 22 PM" src="https://user-images.githubusercontent.com/55005116/212803075-93f3d547-a5aa-4023-a0cc-0ae5cac43292.png">
+  <div>
+    <img width="500" alt="Screenshot 2023-01-16 at 9 43 44 PM" src="https://user-images.githubusercontent.com/55005116/212802871-f4d59cdf-01e0-482e-b98d-194fd9e1fa23.png" style="float: top;">
+  </div>
+  <img width="500" alt="Screenshot 2023-01-16 at 9 56 22 PM" src="https://user-images.githubusercontent.com/55005116/212803075-93f3d547-a5aa-4023-a0cc-0ae5cac43292.png">
 </p>
