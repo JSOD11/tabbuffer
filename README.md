@@ -7,11 +7,7 @@ https://user-images.githubusercontent.com/55005116/212726851-09aa015f-69c0-4bfc-
 
 # Screenshots
 
-<div>
-  <div style="float: left; padding: 5px;">
-    <img width=300; src="https://user-images.githubusercontent.com/55005116/212800854-5ebdf2cd-50d4-4dad-97f1-f610d20a4728.png">
-  </div>
-  <div style="float: left; padding: 5px;">
-    <img width=300; src="https://user-images.githubusercontent.com/55005116/212800863-7a92f45a-d4cc-4dcb-afdf-077aad10c5c0.png">
-  </div>
-</div>
+<p float="left">
+  <img width="400" alt="Screenshot 2023-01-16 at 9 43 44 PM" src="https://user-images.githubusercontent.com/55005116/212802871-f4d59cdf-01e0-482e-b98d-194fd9e1fa23.png">
+  <img width="400" alt="Screenshot 2023-01-16 at 9 56 22 PM" src="https://user-images.githubusercontent.com/55005116/212803075-93f3d547-a5aa-4023-a0cc-0ae5cac43292.png">
+</p>
