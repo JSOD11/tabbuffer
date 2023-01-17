@@ -7,11 +7,11 @@ https://user-images.githubusercontent.com/55005116/212726851-09aa015f-69c0-4bfc-
 
 # Screenshots
 
-<div style="display: flex;">
-  <div style="float: left; flex: 33.33%; padding: 5px;">
-    <img src="https://user-images.githubusercontent.com/55005116/212800854-5ebdf2cd-50d4-4dad-97f1-f610d20a4728.png" style="width:100%">
+<div>
+  <div style="float: left; padding: 5px;">
+    <img src="https://user-images.githubusercontent.com/55005116/212800854-5ebdf2cd-50d4-4dad-97f1-f610d20a4728.png" style="width: 300;">
   </div>
-  <div style="float: left; flex: 33.33%; padding: 5px;">
-    <img src="https://user-images.githubusercontent.com/55005116/212800863-7a92f45a-d4cc-4dcb-afdf-077aad10c5c0.png" style="width:100%">
+  <div style="float: left; padding: 5px;">
+    <img src="https://user-images.githubusercontent.com/55005116/212800863-7a92f45a-d4cc-4dcb-afdf-077aad10c5c0.png" style="width: 300;">
   </div>
 </div>
